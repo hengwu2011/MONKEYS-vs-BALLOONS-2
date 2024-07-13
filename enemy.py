@@ -1,11 +1,16 @@
+import pygame as pg
 class Enemy:
-  pass
-'''
-Heath,position, speed, size, sprites, damage value
-Need to know how to move 
+  rect_box = pg.Rect(50,50,50,50)
+  color = "blue"
+  '''
+  Heath,position, speed, size, sprites, damage value
+  Need to know how to move 
 
-Speed⚡/Damage➖/Health❤️ are different for each enemy/different sprite
+  Speed⚡/Damage➖/Health❤️ are different for each enemy/different sprite
 
-'''
-def prop(self):
-  p1 = Enemy("type of enemy")
+  '''
+  def __init__(self):
+         self.health = 100
+  def prop(self):
+   print("HI ENEMY")
+
