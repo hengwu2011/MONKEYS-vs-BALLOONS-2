@@ -18,6 +18,7 @@ def show_boxes(box_list):
 while running:
     show_boxes(rectangle_list)
     pg.display.flip()
+    keys = pg.key.get_pressed()
     position_x =  pg.mouse.get_pos()[0]
     position_y =  pg.mouse.get_pos()[1]
     # poll for events
@@ -26,9 +27,16 @@ while running:
         if event.type == pg.QUIT:
             running = False
         if event.type == pg.MOUSEBUTTONUP:
-            fav_enemy = Enemy()
+            fav_enemy = Enemy(5,5,5,5,5,5,5,5,5,5)
             rectangle_list.append(fav_enemy)
-            
+        if event.type == pg.K_SPACE:
+          pass
+        if keys[pg.K_t]:
+           print(rectangle_list)
+        if keys[pg.K_SPACE]:
+          for index,box in enumerate(rectangle_list):
+              box.move()
+              print(box.x_position)
     # fill the screen with a color to wipe away anything from last frame
     screen.fill("purple")
 
