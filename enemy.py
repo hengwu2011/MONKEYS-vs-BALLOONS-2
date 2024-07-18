@@ -28,5 +28,6 @@ class Enemy:
 
   def show(self):
        pg.draw.rect(screen,"red",(self.x_position,self.y_postion,self.width,self.height))
-
-
+ 
+  def lose_health(self,lost_health):
+     self.health -= lost_health
