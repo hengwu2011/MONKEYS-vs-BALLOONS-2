@@ -14,7 +14,7 @@ spawn currency
 class Tower:
     
 
-    def __init__(self,x,y,width,height, health, damage, attack_cooldown):
+    def __init__(self,x,y,width,height, health, damage, attack_cooldown, health_upgrade,damage_upgrade,attack_cooldown_upgrade):
         self.health = health
         self.damage= damage
         self.attack_cooldown = attack_cooldown
@@ -22,11 +22,17 @@ class Tower:
         self.y = y
         self.width = width
         self.height = height
-        
+        self.health_upgrade =  health_upgrade
+        self.damage_upgrade =  damage_upgrade
+        self.attack_cooldown_upgrade =  attack_cooldown_upgrade
+
     def upgrade(self):  
-        self.health = self.health+15
-        self.damage = self.damage+15
-        self.attack_cooldown = self.attack_cooldown - 3
+        health_upgrade = self.health_upgrade
+        damage_upgrade = self.damage_upgrade
+        attack_cooldown_upgrade = self.attack_cooldown_upgrade
+        self.health += health_upgrade
+        self.damage += damage_upgrade
+        self.attack_cooldown -= attack_cooldown_upgrade
 
     def show(self):
         pg.draw.rect(self.x,self.y,self.width,self.height)

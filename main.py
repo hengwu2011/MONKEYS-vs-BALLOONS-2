@@ -1,4 +1,6 @@
 import pygame as pg
+from tower import Tower
+
 screen = pg.display.set_mode((1280, 720))
 clock = pg.time.Clock()
 
@@ -9,8 +11,13 @@ def show_boxes(box_list):
        actual_rect = box["rect_box"]
        pg.draw.rect(screen, color_of_box, actual_rect)
 tower_list = []
-
-
+num_tower = 6
+for y in range(num_tower):
+    y_2 = pg.display.get_window_size()[1]/num_tower
+testtower = Tower(9,9,9,9,9,9,9,9,9,9)
+print(testtower.health)
+testtower.upgrade()
+print(testtower.health)
 running = True
 while running:
     # poll for events
@@ -25,8 +32,8 @@ while running:
     for event in pg.event.get():
         if event.type == pg.QUIT:
                 running = False
-        if event.type == pg.MOUSEBUTTONUP:
-            tower_list.append()
+        
+            
         if event.type == pg.K_SPACE:
             pass
 
