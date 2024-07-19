@@ -1,4 +1,3 @@
-# Example file showing a basic pg "game loop"
 import pygame as pg
 from enemy import Enemy 
 
@@ -14,6 +13,7 @@ def show_boxes(box_list):
     for index,box in enumerate(box_list):
        color_of_box = box.health
        actual_rect = box.rect_box
+       box.skin()
        pg.draw.rect(screen, color_of_box, actual_rect)
 while running:
     show_boxes(rectangle_list)
@@ -27,7 +27,8 @@ while running:
         if event.type == pg.QUIT:
             running = False
         if event.type == pg.MOUSEBUTTONUP:
-            fav_enemy = Enemy(5,5,5,5,5,5,5,5,5,5)
+            fav_enemy = Enemy(5,5,5,5,5,5,5,5,5)
+            print(position_x,position_y)
             rectangle_list.append(fav_enemy)
         if event.type == pg.K_SPACE:
           pass
