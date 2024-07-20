@@ -28,7 +28,7 @@ class Enemy:
        self.y_position -= self.y_speed
 
   def show(self):
-       pg.draw.rect(screen,"red",(self.x_position,self.y_postion,self.width,self.height))
+       pg.draw.rect(screen,"red",(self.x_position,self.y_position,self.width,self.height))
  
   def lose_health(self,lost_health):
      self.health -= lost_health
@@ -36,3 +36,9 @@ class Enemy:
   def skin(self):
    self.sprite = pg.image.load("assets/redBalloon.jpeg").convert()
    screen.blit(self.sprite,(screen_x/2,screen_y/2),pg.Rect(0,0,200,200))
+
+  def movement(self):
+          self.x_position -= self.x_speed
+          
+ # Goal Make the enemy move right to left
+ # Ingridents X_Speed, y_speed, need a for loop 
