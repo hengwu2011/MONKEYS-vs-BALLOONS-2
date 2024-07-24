@@ -1,4 +1,4 @@
-import pygame as pg
+import pygame as pg 
 from enemy import Enemy 
 
 # pg setup
@@ -6,6 +6,13 @@ pg.init()
 screen = pg.display.set_mode((1280, 720))
 clock = pg.time.Clock()
 running = True
+num_of_enemies = 10
+enemy_list = [
+
+
+]
+for e in range(num_of_enemies):
+    enemy_list.append(Enemy(5,5,5,5,5,900,e*105,50,50))
 rectangle_list = [
    
 ]
@@ -18,17 +25,15 @@ def show_boxes(box_list):
        box.movement()
        pg.draw.rect(screen, color_of_box, actual_rect)
 
-fav_enemy = Enemy(5,5,5,5,100,100,5,100,100)
-rectangle_list.append(fav_enemy)
-
 while running:
     #show_boxes(rectangle_list)
    
     keys = pg.key.get_pressed()
     position_x =  pg.mouse.get_pos()[0]
     position_y =  pg.mouse.get_pos()[1]
-    rectangle_list[0].movement()
-    rectangle_list[0].show()
+    for x in enemy_list:
+        x.show()
+        x.movement()
     pg.display.flip()
     # poll for events
     # pg.QUIT event means the user clicked X to close your window
