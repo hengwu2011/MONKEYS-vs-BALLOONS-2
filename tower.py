@@ -12,8 +12,6 @@ spawn projectiles
 spawn currency 
 """
 class Tower:
-    
-
     def __init__(self,x,y,width,height, health, damage, attack_cooldown, health_upgrade,damage_upgrade,attack_cooldown_upgrade):
         self.health = health
         self.damage= damage
@@ -25,6 +23,9 @@ class Tower:
         self.health_upgrade =  health_upgrade
         self.damage_upgrade =  damage_upgrade
         self.attack_cooldown_upgrade =  attack_cooldown_upgrade
+    
+    def get_rect(self):
+        return {"x":self.x, "y":self.y,"width":self.width,"height":self.height}
 
     def upgrade(self):  
         health_upgrade = self.health_upgrade

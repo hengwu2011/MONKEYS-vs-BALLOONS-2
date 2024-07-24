@@ -7,11 +7,11 @@ if event.type == MOUSEBUTTONUP:
     pg.draw.rect(grid rect x, grid rect y,)
 """
 #!PROBLEM how to get x and y values of a rectangle on a grid?
-
+from tower import Tower
 import pygame
 import math
-def quantize(mouse_x_pos,grid_x_size):
-    return math.floor(mouse_x_pos/grid_x_size)*grid_x_size + grid_x_size/2
+def quantize(mouse_x_pos,grid_x_size,BORDER):
+    return math.floor(mouse_x_pos/grid_x_size)*grid_x_size+BORDER/2
 
 # Initialize pygame
 pygame.init()
@@ -22,11 +22,11 @@ WINDOW_HEIGHT = 720
 
 # Set block size (adjust as needed)
 BLOCK_SIZE = 150
-
+BORDER = 50
 # Colors
-BLACK = (0, 0, 0)
-WHITE = (200, 200, 200)
-
+BLACK = (250, 250, 0)
+WHITE = (175, 250, 0)
+tower_list = []
 # Create the game window
 screen = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
 pygame.display.set_caption("Rectangle Grid")
@@ -36,15 +36,16 @@ def draw_grid():
         for y in range(0, WINDOW_HEIGHT, BLOCK_SIZE):
             rect = pygame.Rect(x, y, BLOCK_SIZE, BLOCK_SIZE)
             pygame.draw.rect(screen, WHITE, rect, 1)
-
 # Main game loop
 while True:
+    draw_grid()
     for event in pygame.event.get():
         if event.type == pygame.MOUSEBUTTONUP:
-            rect_x = quantize(pygame.mouse.get_pos()[0],100)
-            rect_y = quantize(pygame.mouse.get_pos()[1],100)
-            R = pygame.Rect(rect_x,rect_y,100,100)
-            pygame.draw.rect(screen, "green", R)
+            rect_x = quantize(pygame.mouse.get_pos()[0],BLOCK_SIZE,BORDER)
+            rect_y = quantize(pygame.mouse.get_pos()[1],BLOCK_SIZE,BORDER)
+            tower_list.append(Tower(rect_x,rect_y,BLOCK_SIZE-BORDER,BLOCK_SIZE-BORDER,50,50,2.5,15,15,1))
+            rect = tower_list[-1].get_rect()
+            pygame.draw.rect(screen, "green", pygame.Rect(rect["x"],rect["y"],rect["width"],rect["height"]))
         if event.type == pygame.QUIT:
             
             pygame.quit()
