@@ -32,7 +32,7 @@ while running:
     position_x =  pg.mouse.get_pos()[0]
     position_y =  pg.mouse.get_pos()[1]
     for x in enemy_list:
-        x.show()
+        x.skin()
         x.movement()
     pg.display.flip()
     # poll for events

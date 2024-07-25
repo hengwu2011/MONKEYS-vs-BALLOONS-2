@@ -35,7 +35,7 @@ class Enemy:
 
   def skin(self):
    self.sprite = pg.image.load("assets/redBalloon.jpeg").convert()
-   screen.blit(self.sprite,(screen_x/2,screen_y/2),pg.Rect(0,0,200,200))
+   screen.blit(self.sprite,(self.x_position,self.y_position),pg.Rect(50,50,100,100))
 
   def movement(self):
           self.x_position -= self.x_speed
