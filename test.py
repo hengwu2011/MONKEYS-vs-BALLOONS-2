@@ -12,7 +12,7 @@ enemy_list = [
 
 ]
 for e in range(num_of_enemies):
-    enemy_list.append(Enemy(5,5,5,5,5,900,e*105,50,50))
+    enemy_list.append(Enemy(5,5,5,5,5,900 - e*50,e*105,50,50))
 rectangle_list = [
    
 ]
