@@ -17,11 +17,12 @@ def quantize(mouse_x_pos,grid_x_size,BORDER):
 pygame.init()
 
 # Set window dimensions
-WINDOW_WIDTH = 1280
-WINDOW_HEIGHT = 720
-
+WINDOW_HEIGHT = 800
+window_width_rough = 1430
 # Set block size (adjust as needed)
-BLOCK_SIZE = 150
+BLOCK_SIZE = math.floor(WINDOW_HEIGHT/5)
+WINDOW_WIDTH =math.floor(quantize(window_width_rough,BLOCK_SIZE, 0))
+
 BORDER = 50
 # Colors
 BLACK = (250, 250, 0)
