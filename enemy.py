@@ -33,9 +33,11 @@ class Enemy:
   def lose_health(self,lost_health):
      self.health -= lost_health
 
-  def skin(self,):
+  def skin(self):
    self.sprite = pg.image.load("assets/redBalloon.jpeg").convert()
-   screen.blit(self.sprite,(self.x_position,self.y_position),pg.Rect(20,20,150,150))
+
+   scaled_balloon = pg.transform.scale(self.sprite,(self.width,self.height))
+   screen.blit(scaled_balloon,(self.x_position,self.y_position),pg.Rect(0,0,self.width,self.height))
 
   def movement(self):
           self.x_position -= self.x_speed
