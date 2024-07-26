@@ -16,6 +16,7 @@ def quantize(mouse_x_pos,grid_x_size,BORDER):
 # Initialize pygame
 pygame.init()
 
+
 # Set window dimensions
 WINDOW_HEIGHT = 800
 window_width_rough = 1430
@@ -28,6 +29,11 @@ BORDER = 50
 BLACK = (250, 250, 0)
 WHITE = (175, 250, 0)
 tower_list = []
+#GOAL show a sprite for towers
+#INGREDIENTS, sprite function, the tower, 
+def show_sprite(tower_list):
+    for tower in tower_list:
+        tower.show_sprite()
 # Create the game window
 screen = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
 pygame.display.set_caption("Rectangle Grid")
@@ -40,13 +46,15 @@ def draw_grid():
 # Main game loop
 while True:
     draw_grid()
+    show_sprite(tower_list)
     for event in pygame.event.get():
         if event.type == pygame.MOUSEBUTTONUP:
             rect_x = quantize(pygame.mouse.get_pos()[0],BLOCK_SIZE,BORDER)
             rect_y = quantize(pygame.mouse.get_pos()[1],BLOCK_SIZE,BORDER)
             tower_list.append(Tower(rect_x,rect_y,BLOCK_SIZE-BORDER,BLOCK_SIZE-BORDER,50,50,2.5,15,15,1))
+            
             rect = tower_list[-1].get_rect()
-            pygame.draw.rect(screen, "green", pygame.Rect(rect["x"],rect["y"],rect["width"],rect["height"]))
+            pygame.draw.rect(screen, "black", pygame.Rect(rect["x"],rect["y"],rect["width"],rect["height"]))
         if event.type == pygame.QUIT:
             
             pygame.quit()
