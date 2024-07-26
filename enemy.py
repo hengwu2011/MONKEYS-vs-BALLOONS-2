@@ -35,7 +35,6 @@ class Enemy:
 
   def skin(self):
    self.sprite = pg.image.load("assets/redBalloon.jpeg").convert()
-
    scaled_balloon = pg.transform.scale(self.sprite,(self.width,self.height))
    screen.blit(scaled_balloon,(self.x_position,self.y_position),pg.Rect(0,0,self.width,self.height))
 
