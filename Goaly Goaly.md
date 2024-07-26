@@ -15,3 +15,13 @@ Can have some monkey minigames 🎮
 Levels get harder and harder
 Could add special levels like sky levels 
 Last level is a balloon boss fight 🎈
+
+HSING NOTES THAT HE WROTE
+needs enemies
+needs towers
+need enemy movement
+need shape for tower
+need shape for enemy
+need tower projectiles
+meed enemy health
+lll
