@@ -9,6 +9,7 @@ if event.type == MOUSEBUTTONUP:
 
 #!PROBLEM how to get x and y values of a rectangle on a grid?
 from tower import Tower
+from projectile import Projectiles
 import pygame
 import math
 def quantize(mouse_x_pos,grid_x_size,BORDER):
@@ -30,7 +31,7 @@ BORDER = 50
 BLACK = (250, 250, 0)
 WHITE = (175, 250, 0)
 tower_list = []
-
+projectile_list = []
 def show_sprite(tower_list):
     for tower in tower_list:
         tower.show_sprite()
@@ -52,7 +53,7 @@ while True:
             rect_x = quantize(pygame.mouse.get_pos()[0],BLOCK_SIZE,BORDER)
             rect_y = quantize(pygame.mouse.get_pos()[1],BLOCK_SIZE,BORDER)
             tower_list.append(Tower(rect_x,rect_y,BLOCK_SIZE-BORDER,BLOCK_SIZE-BORDER,50,50,2.5,15,15,1))
-            
+            projectile_list.append(Projectiles(rect_x,rect_y,50,20,15,50,0,0,0))
             rect = tower_list[-1].get_rect()
             pygame.draw.rect(screen, "black", pygame.Rect(rect["x"],rect["y"],rect["width"],rect["height"]))
         if event.type == pygame.QUIT:
