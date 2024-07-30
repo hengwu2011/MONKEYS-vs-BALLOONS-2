@@ -1,0 +1,27 @@
+#GOAL TO MAKE A  the original list of dicts, and the updated list of dicts
+#NEED A LIST, DICT
+import random as rd
+list_dict = []
+
+for x in range(10):
+    list_dict.append({"counter":rd.random(),"howdy":"my greeting"})
+
+updated_list_dict = []
+
+for index,current_dict in enumerate(list_dict):
+    updated_list_dict.append({"counter": current_dict["counter"] + list_dict[index-1]["counter"]})
+
+for a in list_dict:
+    print(a)
+
+print("ha")
+
+for b in updated_list_dict:
+    print(b)
+
+#GOAL second list in which each 
+# dicts counter value is equal to the original lists 
+# counter value combined tih the previous items counter value
+
+# list1 = [0,1,2,5,4,6,5,3]
+# list2 = [3,1,3,7,9,10,11,8]
