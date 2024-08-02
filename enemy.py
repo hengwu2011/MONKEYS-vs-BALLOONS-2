@@ -41,6 +41,11 @@ class Enemy:
 
   def movement(self):
           self.x_position -= self.x_speed
-          
- # Goal Make the enemy move right to left
- # Ingridents X_Speed, y_speed, need a for loop 
+
+  def attacking(self):
+   
+    return                     
+    self.attack_animation
+  #Goal make the enemy attack do a certain amount of damage 
+  #Ingridents need attack speed, damage , attack animation, 
+  # Translate self.attack_speed
