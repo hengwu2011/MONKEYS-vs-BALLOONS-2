@@ -12,6 +12,7 @@ from tower import Tower
 from enemy import Enemy 
 import pygame as pg
 import math
+import random as rd
 def quantize(mouse_x_pos,grid_x_size,BORDER):
     return math.floor(mouse_x_pos/grid_x_size)*grid_x_size+BORDER/2
 clock = pg.time.Clock()
@@ -23,7 +24,7 @@ pg.init()
 num_of_enemies = 10
 enemy_list = []
 for e in range(num_of_enemies):
-    enemy_list.append(Enemy(5,5,5,5,5,900 - e*50,e*105,50,50))
+    enemy_list.append(Enemy(5,5,rd.random()*10,5,5,900 - e*50,e*105,50,50,50))
 rectangle_list = [
    
 ]

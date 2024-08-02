@@ -12,7 +12,7 @@ class Enemy:
   Speed⚡/Damage➖/Health❤️ are different for each enemy/different sprite
 
   '''
-  def __init__(self,health,damage,x_speed,y_speed,hit_money,x_position,y_position,width,height):
+  def __init__(self,health,damage,x_speed,y_speed,hit_money,x_position,y_position,width,height,attack_speed):
          self.health = health
          self.damage = damage
          self.x_speed = x_speed
@@ -22,6 +22,7 @@ class Enemy:
          self.hit_money = hit_money
          self.width = width
          self.height = height
+         self.attack_speed = attack_speed
 
   def move(self):
        self.x_position -= self.x_speed
