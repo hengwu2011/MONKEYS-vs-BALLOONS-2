@@ -42,10 +42,8 @@ class Enemy:
   def movement(self):
           self.x_position -= self.x_speed
 
-  def attacking(self):
-   
-    return                     
-    self.attack_animation
+  def attacking(self):                
+     return self.damage
   #Goal make the enemy attack do a certain amount of damage 
   #Ingridents need attack speed, damage , attack animation, 
   # Translate self.attack_speed
