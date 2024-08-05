@@ -1,6 +1,6 @@
 "GOAl"#get towers to appear on grid upon click
 """ingredients: 
-x and y of rect??, mouse button  up event,function to draw rectangles"""
+x and y of rect??, mou button  up event,function to draw rectangles"""
 """translation: 
 x and y of rect??
 if event.type == MOUSEBUTTONUP:
@@ -53,7 +53,7 @@ while True:
         if event.type == pygame.MOUSEBUTTONUP:
             rect_x = quantize(pygame.mouse.get_pos()[0],BLOCK_SIZE,BORDER)
             rect_y = quantize(pygame.mouse.get_pos()[1],BLOCK_SIZE,BORDER)
-            tower_list.append(Tower({"x":rect_x,"y":rect_y,"width":BLOCK_SIZE-BORDER,"height":BLOCK_SIZE-BORDER,"health_upgrade":50,"damage_upgrade":50,"attack_cooldown_upgrade":2.5}))
+            tower_list.append(Tower({"health":50,"damage":15,"attack_cooldown":2.5,"x":rect_x,"y":rect_y,"width":BLOCK_SIZE-BORDER,"height":BLOCK_SIZE-BORDER,"health_upgrade":50,"damage_upgrade":50,"attack_cooldown_upgrade":2.5}))
             projectile_list.append(Projectiles(rect_x,rect_y,50,20,15,50,0,0,0))
             rect = tower_list[-1].get_rect()
             pygame.draw.rect(screen, "black", pygame.Rect(rect["x"],rect["y"],rect["width"],rect["height"]))
