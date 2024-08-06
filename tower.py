@@ -28,6 +28,8 @@ class Tower:
         self.health_upgrade =  health_upgrade
         self.damage_upgrade =  damage_upgrade
         self.attack_cooldown_upgrade =  attack_cooldown_upgrade
+        self.sprite = pg.image.load("assets/dartMonkey.webp").convert()
+        self.scaled_sprite = pg.transform.scale(self.sprite, (self.width,self.height))
     
     def get_rect(self):
         return {"x":self.x, "y":self.y,"width":self.width,"height":self.height}
@@ -48,6 +50,4 @@ class Tower:
     
 
     def show_sprite(self):
-        self.sprite = pg.image.load("assets/dartMonkey.webp").convert()
-        scaled_sprite = pg.transform.scale(self.sprite, (self.width,self.height))
-        screen.blit(scaled_sprite,(self.x,self.y),pg.Rect(0,0,self.width,self.height))
+        screen.blit(self.scaled_sprite,(self.x,self.y),pg.Rect(0,0,self.width,self.height))

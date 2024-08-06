@@ -46,6 +46,7 @@ def show_sprite(tower_list):
     for tower in tower_list:
         tower.show_sprite()
 
+
 # Create the game window
 screen = pg.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
 pg.display.set_caption("Rectangle Grid")
@@ -65,13 +66,13 @@ while True:
         x.movement()
         
     for event in pg.event.get():
-        if event.type == pg.MOUSEBUTTONUP:
+        if event.type == pg.MOUSEBUTTONDOWN:
             rect_x = quantize(pg.mouse.get_pos()[0],BLOCK_SIZE,BORDER)
             rect_y = quantize(pg.mouse.get_pos()[1],BLOCK_SIZE,BORDER)
             tower_list.append(Tower(rect_x,rect_y,BLOCK_SIZE-BORDER,BLOCK_SIZE-BORDER,50,50,2.5,15,15,1))
             
-            rect = tower_list[-1].get_rect()
-            pg.draw.rect(screen, "black", pg.Rect(rect["x"],rect["y"],rect["width"],rect["height"]))
+            #rect = tower_list[-1].get_rect()
+            #pg.draw.rect(screen, "black", pg.Rect(rect["x"],rect["y"],rect["width"],rect["height"]))
         if event.type == pg.QUIT:
             
             pg.quit()
