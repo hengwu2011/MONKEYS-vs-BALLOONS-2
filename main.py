@@ -21,13 +21,6 @@ pg.init()
 
 
 # Set window dimensions
-num_of_enemies = 10
-enemy_list = []
-for e in range(num_of_enemies):
-    enemy_list.append(Enemy(5,5,rd.random()*10,5,5,900 - e*50,e*105,50,50,50))
-rectangle_list = [
-   
-]
 WINDOW_HEIGHT = 800
 window_width_rough = 1430
 # Set block size (adjust as needed)
@@ -38,6 +31,15 @@ BORDER = 50
 # Colors
 BLACK = (250, 250, 0)
 WHITE = (175, 250, 0)
+
+num_of_enemies = 10
+enemy_list = []
+for e in range(num_of_enemies):
+    enemy_list.append(Enemy({"health":5,"damage":5,"x_speed":rd.random()*10,"y_speed":5,"x_position":WINDOW_WIDTH,"y_position":e*BLOCK_SIZE+BLOCK_SIZE/2 - 50/2,"hit_money":e*105,"width":50,"height":50,"attack_speed":50}))
+rectangle_list = [
+   
+]
+
 tower_list = []
 
 def show_sprite(tower_list):
