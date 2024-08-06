@@ -12,17 +12,18 @@ class Enemy:
   Speed⚡/Damage➖/Health❤️ are different for each enemy/different sprite
 
   '''
-  def __init__(self,health,damage,x_speed,y_speed,hit_money,x_position,y_position,width,height,attack_speed):
-         self.health = health
-         self.damage = damage
-         self.x_speed = x_speed
-         self.y_speed = y_speed
-         self.x_position = x_position
-         self.y_position = y_position
-         self.hit_money = hit_money
-         self.width = width
-         self.height = height
-         self.attack_speed = attack_speed
+
+  def __init__(self, options):
+         self.health = options["health"]
+         self.damage = options["damage"]
+         self.x_speed = options["x_speed"]
+         self.y_speed = options["y_speed"]
+         self.x_position = options["x_position"]
+         self.y_position = options["y_position"]
+         self.hit_money = options["hit_money"]
+         self.width = options["width"]
+         self.height = options["height"]
+         self.attack_speed = options["attack_speed"]
          self.sprite = pg.image.load("assets/redBalloon.jpeg").convert()
          self.scaled_balloon = pg.transform.scale(self.sprite,(self.width,self.height))
 
@@ -37,8 +38,9 @@ class Enemy:
      self.health -= lost_health
 
   def skin(self):
- 
-   screen.blit(self.scaled_balloon,(self.x_position,self.y_position),pg.Rect(0,0,self.width,self.height))
+   self.sprite = pg.image.load("assets/redBalloon.jpeg").convert()
+   scaled_balloon = pg.transform.scale(self.sprite,(self.width,self.height))
+   screen.blit(scaled_balloon,(self.x_position,self.y_position),pg.Rect(0,0,self.width,self.height))
 
   def movement(self):
           self.x_position -= self.x_speed
