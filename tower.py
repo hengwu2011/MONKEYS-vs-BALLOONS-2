@@ -20,15 +20,36 @@ class Tower:
     def __init__(self,options):
         self.health = options["health"]
         self.damage= options["damage"]
-        self.attack_cooldown = options["attack_cooldown"]
+        self.sprite = pg.image.load("assets/dartMonkey.webp").convert()
+
+        
+        
         self.x = options["x"]
+        
+        
         self.y = options["y"]
+        
+        
         self.width = options["width"]
+        
+        
         self.height = options["height"]
+        
+        
         self.health_upgrade =  options["health_upgrade"]
+        
+        
         self.damage_upgrade =  options["damage_upgrade"]
+        
+        
         self.attack_cooldown_upgrade =  options["attack_cooldown_upgrade"]
+        self.scaled_sprite = pg.transform.scale(self.sprite, (self.width,self.height))
+        
+        self.attack_cooldown = options["attack_cooldown"]
+        
         self.projectile_list = []
+        
+        
     
     def get_rect(self):
         return {"x":self.x, "y":self.y,"width":self.width,"height":self.height}
@@ -49,9 +70,8 @@ class Tower:
     
 
     def show_sprite(self):
-        self.sprite = pg.image.load("assets/dartMonkey.webp").convert()
-        scaled_sprite = pg.transform.scale(self.sprite, (self.width,self.height))
-        screen.blit(scaled_sprite,(self.x,self.y),pg.Rect(0,0,self.width,self.height))
+        
+        screen.blit(self.scaled_sprite,(self.x,self.y),pg.Rect(0,0,self.width,self.height))
         
         "translation"
     

@@ -10,11 +10,10 @@ if event.type == MOUSEBUTTONUP:
 #ingredints projectiles, delay, towers, shooting method
 
 from tower import Tower
-from projectile import Projectiles
-from enemy import Enemy 
 import pygame as pg
 import math
 import random as rd
+from enemy import Enemy
 def quantize(mouse_x_pos,grid_x_size,BORDER):
     return math.floor(mouse_x_pos/grid_x_size)*grid_x_size+BORDER/2
 clock = pg.time.Clock()
@@ -23,10 +22,6 @@ pg.init()
 
 
 # Set window dimensions
-num_of_enemies = 10
-enemy_list = []
-for e in range(num_of_enemies):
-    enemy_list.append(Enemy(5,5,rd.random()*10,5,5,900 - e*50,e*105,50,50,50))
 rectangle_list = [
    
 ]
@@ -42,6 +37,10 @@ BLACK = (250, 250, 0)
 WHITE = (175, 250, 0)
 tower_list = []
 projectile_list = []
+num_of_enemies = 10
+enemy_list = []
+for e in range(num_of_enemies):
+    enemy_list.append(Enemy(5,5,rd.random()*10,5,5,900 - e*50,e*105,50,50,50))
 def show_sprite(tower_list):
     for tower in tower_list:
         tower.show_sprite()
@@ -60,11 +59,15 @@ while True:
     screen.fill("black")
     draw_grid()
     show_sprite(tower_list)
-    for event in pygame.event.get():
-        if event.type == pygame.MOUSEBUTTONUP:
-            rect_x = quantize(pygame.mouse.get_pos()[0],BLOCK_SIZE,BORDER)
-            rect_y = quantize(pygame.mouse.get_pos()[1],BLOCK_SIZE,BORDER)
-            tower_list.append(Tower(rect_x,rect_y,BLOCK_SIZE-BORDER,BLOCK_SIZE-BORDER,50,50,2.5,15,15,1))
+    for x in enemy_list:
+        x.skin()
+        x.movement()
+    for event in pg.event.get():
+        if event.type == pg.MOUSEBUTTONUP:
+            rect_x = quantize(pg.mouse.get_pos()[0],BLOCK_SIZE,BORDER)
+            rect_y = quantize(pg.mouse.get_pos()[1],BLOCK_SIZE,BORDER)
+
+            tower_list.append(Tower({"health": 50,"damage": 15,"attack_cooldown": 1,"x": rect_x,"y": rect_y,"width": BLOCK_SIZE-BORDER,"height": BLOCK_SIZE-BORDER,"health_upgrade": 15,"damage_upgrade": 15,"attack_cooldown_upgrade": .2,}))
             
             rect = tower_list[-1].get_rect()
             pg.draw.rect(screen, "black", pg.Rect(rect["x"],rect["y"],rect["width"],rect["height"]))
