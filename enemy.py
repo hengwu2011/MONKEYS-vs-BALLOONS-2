@@ -12,7 +12,7 @@ class Enemy:
   Speed⚡/Damage➖/Health❤️ are different for each enemy/different sprite
 
   '''
-  def __init__(self,health,damage,x_speed,y_speed,hit_money,x_position,y_position,width,height):
+  def __init__(self,health,damage,x_speed,y_speed,hit_money,x_position,y_position,width,height,attack_speed):
          self.health = health
          self.damage = damage
          self.x_speed = x_speed
@@ -22,6 +22,7 @@ class Enemy:
          self.hit_money = hit_money
          self.width = width
          self.height = height
+         self.attack_speed = attack_speed
 
   def move(self):
        self.x_position -= self.x_speed
@@ -35,10 +36,14 @@ class Enemy:
 
   def skin(self):
    self.sprite = pg.image.load("assets/redBalloon.jpeg").convert()
-   screen.blit(self.sprite,(screen_x/2,screen_y/2),pg.Rect(0,0,200,200))
+   scaled_balloon = pg.transform.scale(self.sprite,(self.width,self.height))
+   screen.blit(scaled_balloon,(self.x_position,self.y_position),pg.Rect(0,0,self.width,self.height))
 
   def movement(self):
           self.x_position -= self.x_speed
-          
- # Goal Make the enemy move right to left
- # Ingridents X_Speed, y_speed, need a for loop 
+
+  def attacking(self):                
+     return self.damage
+  #Goal make the enemy attack do a certain amount of damage 
+  #Ingridents need attack speed, damage , attack animation, 
+  # Translate self.attack_speed
