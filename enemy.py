@@ -25,7 +25,9 @@ class Enemy:
          self.height = options["height"]
          self.attack_speed = options["attack_speed"]
          self.sprite = pg.image.load("assets/redBalloon.jpeg").convert()
+         self.sprite.set_colorkey("white")
          self.scaled_balloon = pg.transform.scale(self.sprite,(self.width,self.height))
+         
 
   def move(self):
        self.x_position -= self.x_speed
