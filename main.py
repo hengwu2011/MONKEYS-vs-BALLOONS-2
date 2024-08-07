@@ -21,13 +21,6 @@ pg.init()
 
 
 # Set window dimensions
-num_of_enemies = 10
-enemy_list = []
-for e in range(num_of_enemies):
-    enemy_list.append(Enemy(5,5,rd.random()*10,5,5,900 - e*50,e*105,50,50,50))
-rectangle_list = [
-   
-]
 WINDOW_HEIGHT = 800
 window_width_rough = 1430
 # Set block size (adjust as needed)
@@ -38,11 +31,21 @@ BORDER = 50
 # Colors
 BLACK = (250, 250, 0)
 WHITE = (175, 250, 0)
+
+num_of_enemies = 10
+enemy_list = []
+for e in range(num_of_enemies):
+    enemy_list.append(Enemy({"health":5,"damage":5,"x_speed":rd.random()*10,"y_speed":5,"x_position":WINDOW_WIDTH,"y_position":e*BLOCK_SIZE+BLOCK_SIZE/2 - 50/2,"hit_money":e*105,"width":50,"height":50,"attack_speed":50}))
+rectangle_list = [
+   
+]
+
 tower_list = []
 
 def show_sprite(tower_list):
     for tower in tower_list:
         tower.show_sprite()
+
 
 # Create the game window
 screen = pg.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
@@ -63,13 +66,13 @@ while True:
         x.movement()
         
     for event in pg.event.get():
-        if event.type == pg.MOUSEBUTTONUP:
+        if event.type == pg.MOUSEBUTTONDOWN:
             rect_x = quantize(pg.mouse.get_pos()[0],BLOCK_SIZE,BORDER)
             rect_y = quantize(pg.mouse.get_pos()[1],BLOCK_SIZE,BORDER)
             tower_list.append(Tower(rect_x,rect_y,BLOCK_SIZE-BORDER,BLOCK_SIZE-BORDER,50,50,2.5,15,15,1))
             
-            rect = tower_list[-1].get_rect()
-            pg.draw.rect(screen, "black", pg.Rect(rect["x"],rect["y"],rect["width"],rect["height"]))
+            #rect = tower_list[-1].get_rect()
+            #pg.draw.rect(screen, "black", pg.Rect(rect["x"],rect["y"],rect["width"],rect["height"]))
         if event.type == pg.QUIT:
             
             pg.quit()
