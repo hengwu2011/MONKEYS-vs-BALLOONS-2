@@ -15,6 +15,7 @@ import pygame as pg
 import math
 import random as rd
 from enemy import Enemy
+from wall_monkey import Wall_monkey
 def quantize(mouse_x_pos,grid_x_size,BORDER):
     return math.floor(mouse_x_pos/grid_x_size)*grid_x_size+BORDER/2
 clock = pg.time.Clock()
@@ -71,7 +72,7 @@ while True:
             rect_x = quantize(pg.mouse.get_pos()[0],BLOCK_SIZE,BORDER)
             rect_y = quantize(pg.mouse.get_pos()[1],BLOCK_SIZE,BORDER)
             projectile_list.append(Projectiles({"x":rect_x,"y":rect_y,"width":35,"height":10,"damage":15,"xspeed":5,"yspeed":0,"sprite":"none","effects":"none"}))
-            tower_list.append(Tower({"health": 50,"damage": 15,"attack_cooldown": 1,"x": rect_x,"y": rect_y,"width": BLOCK_SIZE-BORDER,"height": BLOCK_SIZE-BORDER,"health_upgrade": 15,"damage_upgrade": 15,"attack_cooldown_upgrade": .2,}))
+            tower_list.append(Wall_monkey({"health": 50,"damage": 15,"attack_cooldown": 1,"x": rect_x,"y": rect_y,"width": BLOCK_SIZE-BORDER,"height": BLOCK_SIZE-BORDER,"health_upgrade": 15,"damage_upgrade": 15,"attack_cooldown_upgrade": .2,}))
             
             
             

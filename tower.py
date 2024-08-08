@@ -3,6 +3,7 @@ screen = pg.display.set_mode((1280, 720))
 screen_x = 1280
 screen_y = 720
 from projectile import Projectiles
+
 """on click creates a tower
 towers should be able to have
 health,
@@ -49,7 +50,7 @@ class Tower:
         
         self.projectile_list = []
         
-        
+
     
     def get_rect(self):
         return {"x":self.x, "y":self.y,"width":self.width,"height":self.height}
