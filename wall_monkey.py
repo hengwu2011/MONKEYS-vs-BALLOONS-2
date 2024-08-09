@@ -17,3 +17,4 @@ class Wall_monkey(Tower):
         self.damage = 0
         self.attack_cooldown = 0
         self.sprite = pg.image.load("assets/monkey_village_wall.jpg").convert()
+        self.scaled_sprite = pg.transform.scale(self.sprite, (self.width,self.height))
