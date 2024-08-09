@@ -36,7 +36,8 @@ WHITE = (175, 250, 0)
 num_of_enemies = 10
 enemy_list = []
 for e in range(num_of_enemies):
-    enemy_list.append(tb({"health":5,"damage":5,"x_speed":rd.random()*10,"y_speed":5,"x_position":WINDOW_WIDTH,"y_position":e*BLOCK_SIZE+BLOCK_SIZE/2 - 50/2,"hit_money":e*105,"width":50,"height":50,"attack_speed":50}))
+    enemy_list.append(Enemy({"health":5,"damage":5,"x_speed":rd.random()*10,"y_speed":5,"x_position":WINDOW_WIDTH,"y_position":e*BLOCK_SIZE+BLOCK_SIZE/2 - 50/2,"hit_money":e*105,"width":50,"height":50,"attack_speed":50}))
+    enemy_list.append(tb({"health":200,"damage":500,"x_speed":10,"y_speed":5,"x_position":WINDOW_WIDTH,"y_position":e*BLOCK_SIZE+BLOCK_SIZE/2 - 50/2,"hit_money":e*105,"width":100,"height":100,"attack_speed":10}))
 rectangle_list = [
    
 ]

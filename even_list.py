@@ -13,4 +13,4 @@ for x in range(100):
 #Ingridents need rd.random, need list, for loop
 import random 
 random_list = [random.random()*5 for x in range(25)]
-print(random_list)
+
