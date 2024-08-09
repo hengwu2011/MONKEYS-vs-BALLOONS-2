@@ -1,4 +1,6 @@
 import pygame as pg
+import random as rd
+import main as m
 screen = pg.display.set_mode((1280, 720))
 screen_x = 1280
 screen_y = 720
@@ -13,7 +15,7 @@ class Enemy:
 
   '''
 
-  def __init__(self, options):
+  def __init__(self, options = {"health":5,"damage":5,"x_speed":rd.random()*10,"y_speed":5,"x_position":m.WINDOW_WIDTH,"y_position":m.e*m.BLOCK_SIZE+m.BLOCK_SIZE/2 - 50/2,"hit_money":m.e*105,"width":50,"height":50,"attack_speed":5}):
          self.health = options["health"]
          self.damage = options["damage"]
          self.x_speed = options["x_speed"]
