@@ -50,3 +50,4 @@ class Enemy:
   #Goal make the enemy attack do a certain amount of damage 
   #Ingridents need attack speed, damage , attack animation, 
   # Translate self.attack_speed
+  

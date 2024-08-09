@@ -9,7 +9,8 @@ if event.type == MOUSEBUTTONUP:
 
 #!PROBLEM how to get x and y values of a rectangle on a grid?
 from tower import Tower
-from enemy import Enemy 
+from enemy import Enemy
+from tank_balloon import Tank_Enemy as tb
 import pygame as pg
 import math
 import random as rd
@@ -35,7 +36,7 @@ WHITE = (175, 250, 0)
 num_of_enemies = 10
 enemy_list = []
 for e in range(num_of_enemies):
-    enemy_list.append(Enemy({"health":5,"damage":5,"x_speed":rd.random()*10,"y_speed":5,"x_position":WINDOW_WIDTH,"y_position":e*BLOCK_SIZE+BLOCK_SIZE/2 - 50/2,"hit_money":e*105,"width":50,"height":50,"attack_speed":50}))
+    enemy_list.append(tb({"health":5,"damage":5,"x_speed":rd.random()*10,"y_speed":5,"x_position":WINDOW_WIDTH,"y_position":e*BLOCK_SIZE+BLOCK_SIZE/2 - 50/2,"hit_money":e*105,"width":50,"height":50,"attack_speed":50}))
 rectangle_list = [
    
 ]
@@ -70,9 +71,6 @@ while True:
             rect_x = quantize(pg.mouse.get_pos()[0],BLOCK_SIZE,BORDER)
             rect_y = quantize(pg.mouse.get_pos()[1],BLOCK_SIZE,BORDER)
             tower_list.append(Tower(rect_x,rect_y,BLOCK_SIZE-BORDER,BLOCK_SIZE-BORDER,50,50,2.5,15,15,1))
-            
-            #rect = tower_list[-1].get_rect()
-            #pg.draw.rect(screen, "black", pg.Rect(rect["x"],rect["y"],rect["width"],rect["height"]))
         if event.type == pg.QUIT:
             
             pg.quit()
