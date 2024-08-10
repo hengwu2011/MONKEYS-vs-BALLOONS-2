@@ -8,7 +8,7 @@ class Tank_Enemy(Enemy):
     self.height = 200
     self.health = 500
     self.x_speed = 1
-    self.sprite = pg.image.load("assets/angryballoonboy.jpg").convert()
+    self.sprite = pg.image.load("assets/Enemies/angryballoonboy.jpg").convert()
     self.sprite.set_colorkey("white")
     self.scaled_balloon = pg.transform.scale(self.sprite,(self.width,self.height))
 #use inheritance to generate multiple kinds of enemies,towers,and projectiles

@@ -28,7 +28,7 @@ class Tower:
         self.health_upgrade =  health_upgrade
         self.damage_upgrade =  damage_upgrade
         self.attack_cooldown_upgrade =  attack_cooldown_upgrade
-        self.sprite = pg.image.load("assets/dartMonkey.webp").convert()
+        self.sprite = pg.image.load("assets/Towers/dartMonkey.webp").convert()
         self.scaled_sprite = pg.transform.scale(self.sprite, (self.width,self.height))
     
     def get_rect(self):
