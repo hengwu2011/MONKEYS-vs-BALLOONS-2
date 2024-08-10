@@ -67,12 +67,18 @@ while True:
     for x in enemy_list:
         x.skin()
         x.movement()
+
+    for proj in projectile_list:
+        proj.move(5,0)
+
+    show_sprite(projectile_list)
+   
     for event in pg.event.get():
         if event.type == pg.MOUSEBUTTONDOWN:
             rect_x = quantize(pg.mouse.get_pos()[0],BLOCK_SIZE,BORDER)
             rect_y = quantize(pg.mouse.get_pos()[1],BLOCK_SIZE,BORDER)
-            projectile_list.append(Projectiles({"x":rect_x,"y":rect_y,"width":35,"height":10,"damage":15,"xspeed":5,"yspeed":0,"sprite":"none","effects":"none"}))
             tower_list.append(Wall_monkey({"health": 50,"damage": 15,"attack_cooldown": 1,"x": rect_x,"y": rect_y,"width": BLOCK_SIZE-BORDER,"height": BLOCK_SIZE-BORDER,"health_upgrade": 15,"damage_upgrade": 15,"attack_cooldown_upgrade": .2,}))
+            projectile_list.append(Projectiles({"x":rect_x,"y":rect_y,"width":35,"height":10,"damage":15,"xspeed":5,"yspeed":0,"sprite":pg.image.load("assets/redBalloon2.png").convert(),"effects":"none"}))
             
             
             
