@@ -1,4 +1,5 @@
 import pygame as pg
+import random as rd
 screen = pg.display.set_mode((1280, 720))
 screen_x = 1280
 screen_y = 720
@@ -13,7 +14,7 @@ class Enemy:
 
   '''
 
-  def __init__(self, options):
+  def __init__(self, options = {"health":5,"damage":5,"x_speed":rd.random()*10,"y_speed":5,"x_position":0,"y_position":0,"hit_money":0,"width":50,"height":50,"attack_speed":5}):
          self.health = options["health"]
          self.damage = options["damage"]
          self.x_speed = options["x_speed"]
@@ -24,8 +25,10 @@ class Enemy:
          self.width = options["width"]
          self.height = options["height"]
          self.attack_speed = options["attack_speed"]
-         self.sprite = pg.image.load("assets/redBalloon.jpeg").convert()
+         self.sprite = pg.image.load("assets/Enemies/redballoon.jpeg").convert()
+         self.sprite.set_colorkey("white")
          self.scaled_balloon = pg.transform.scale(self.sprite,(self.width,self.height))
+         
 
   def move(self):
        self.x_position -= self.x_speed
@@ -48,3 +51,4 @@ class Enemy:
   #Goal make the enemy attack do a certain amount of damage 
   #Ingridents need attack speed, damage , attack animation, 
   # Translate self.attack_speed
+  

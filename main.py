@@ -44,6 +44,11 @@ num_of_enemies = 10
 enemy_list = []
 for e in range(num_of_enemies):
     enemy_list.append(Enemy({"health":5,"damage":5,"x_speed":rd.random()*10,"y_speed":5,"x_position":WINDOW_WIDTH,"y_position":e*BLOCK_SIZE+BLOCK_SIZE/2 - 50/2,"hit_money":e*105,"width":50,"height":50,"attack_speed":50}))
+rectangle_list = [
+   
+]
+
+tower_list = []
 
 def show_sprite(tower_list):
     for tower in tower_list:
@@ -60,9 +65,13 @@ def draw_grid():
             rect = pg.Rect(x, y, BLOCK_SIZE, BLOCK_SIZE)
             pg.draw.rect(screen, WHITE, rect, 1)
 
+bg = pg.image.load("assets/Background/grasslanes.jpg")
+bg_scaled = pg.transform.scale(bg, (WINDOW_WIDTH, WINDOW_HEIGHT))
+
 while True:
     screen.fill("black")
     draw_grid()
+    screen.blit(bg_scaled, (0,0))
     show_sprite(tower_list)
     for x in enemy_list:
         x.skin()
