@@ -21,7 +21,7 @@ class Tower:
     def __init__(self,options = {"health": 50,"damage": 15,"attack_cooldown": 1,"x": 0,"y": 0,"width": 100,"height": 100,"health_upgrade": 15,"damage_upgrade": 15,"attack_cooldown_upgrade": 0.2,}):
         self.health = options["health"]
         self.damage= options["damage"]
-        self.sprite = pg.image.load("assets/dartMonkey.webp").convert()
+        self.sprite = pg.image.load("assets/Towers/dartMonkey.webp").convert()
 
         
         
